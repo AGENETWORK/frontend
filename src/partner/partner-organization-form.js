@@ -101,8 +101,8 @@ function PartnetOrgForm ({isVisable, orgName, orgEmail, repFirstName, repMidName
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
                     }
                   })} ></input>
-                  {errors.email && errors.repEmail.type === "required" && "required"}
-                  {errors.email && errors.repEmail.type === "pattern" && "invalid email"}
+                  {errors.repEmail && errors.repEmail.type === "required" && "required"}
+                  {errors.repEmail && errors.repEmail.type === "pattern" && "invalid email"}
               </div>
               <div className="col col-md-6 col-sm-12">
                 <input className="form-control" type="text" value={repEmail} 
