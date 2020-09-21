@@ -16,25 +16,25 @@ function PartnetOrgForm ({isVisable, orgName, orgEmail, repFirstName, repMidName
       <div className="container">
         <h4>My Form</h4>
         <form onSubmit={handleSubmit(onSubmit)}>
-          
           <div className="form-group">
-            <label>Organization Name</label>
-          </div>
-          <div className="form-group row">
-              <div className="col col-md-4 col-sm-12">
+            <div className="row">
+                <label>Organization Name</label>
+            </div>
+            <div className="row">  
+              <div className="col col-md-6 col-sm-12">
                 <input type="text" className="form-control" value={orgName} 
                   name="orgName" placeholder="Organization Name" 
                   ref={register({ required: true })} ></input>
                   {errors.orgName && <span>required</span>}
               </div>
+            </div>
           </div>
-
           <div className="form-group">
-            
+            <div className="row">
               <label>Organization Email</label>
-          </div>
+            </div>
               
-          <div className="form-group row">
+            <div className="row">
             
               <div className="col col-md-6 col-sm-12">
                 <input className="form-control" type="text" value={orgEmail} name="orgEmail" 
@@ -58,13 +58,14 @@ function PartnetOrgForm ({isVisable, orgName, orgEmail, repFirstName, repMidName
                     && "equired"}
                   {errors.confirmOrgEmail && errors.confirmOrgEmail.type === "validate" 
                     && "email confirmation is not same"}
-              </div>
             </div>
-
-          <div className="form-group">
-            <label>Repsintitaive Name</label>
+          </div>
           </div>
           <div className="form-group">
+           <div className="row">
+              <label>Repsintitaive Name</label>
+            </div>
+            <div className="row">
               <div className="col col-md-4 col-sm-12">
                 <input type="text" className="form-control" value={repFirstName} 
                   name="repFirstName" placeholder="Repsintitaive first Name" 
@@ -84,14 +85,14 @@ function PartnetOrgForm ({isVisable, orgName, orgEmail, repFirstName, repMidName
                   {errors.repLastName && "required"}
               </div>
             </div>
-          
+          </div>
 
           <div className="form-group">
-            
-              <label>Repsintitaive Email</label>
-          </div>
+            <div className="row">
+                <label>Repsintitaive Email</label>
+            </div>
               
-          <div className="form-group">
+            <div className="row">
             
               <div className="col col-md-6 col-sm-12">
                 <input className="form-control" type="text" value={repEmail} name="repEmail" 
@@ -117,13 +118,14 @@ function PartnetOrgForm ({isVisable, orgName, orgEmail, repFirstName, repMidName
                     && "email confirmation is not same"}
               </div>
             </div>
-
+          </div>
           <div className="form-group">
-            
+                  
+            <div className="row">
               <label>Comment or Message</label>
             </div>
 
-            <div className="form-group">
+            <div className="row">
               <div className="col col-md-12 col-sm-12">
                 <textarea className="form-control" name="message"  
                   placeholder="Add a message"
@@ -137,7 +139,7 @@ function PartnetOrgForm ({isVisable, orgName, orgEmail, repFirstName, repMidName
                 && "Miximum 500 charachter"}
               </div>
             </div>
-
+          </div>
           <div className="form-group">
             <button className="btn btn-primary" type="submit">Submit</button>
           </div>

@@ -7,8 +7,8 @@ class PartnetTabForm extends React.Component{
   render() {
     return (
         <div>
-            <PartnetPersonForm isVisable={false} />
-            <PartnetOrgForm isVisable={true} />
+            <PartnetPersonForm isVisable={true} />
+            <PartnetOrgForm isVisable={false} />
         </div>
       
     );
