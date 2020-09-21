@@ -1,6 +1,6 @@
 linters:
   stylelint:
-    config: './stylelintrc.json'
+    config: './.stylelintrc.json'
     fixer: true
 
 files:
