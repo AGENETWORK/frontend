@@ -2,7 +2,7 @@ import React from 'react';
 import PartnetTabForm from '../partner/partner-tab-form';
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import Main from '../content/main';
+import Main from '../content';
 
 const App = () => {
   return (
