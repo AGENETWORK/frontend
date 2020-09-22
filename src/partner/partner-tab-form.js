@@ -1,18 +1,24 @@
-import React from 'react';
-import PartnetPersonForm from './partner-person-form';
-import PartnetOrgForm from './partner-organization-form';
+/* eslint-disable react/destructuring-assignment */
+import React from "react";
+import PartnetPersonForm from "./partner-person-form";
+import PartnetOrgForm from "./partner-organization-form";
 
+class PartnetTabForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.setState({
+      isVisable: props.isVisable,
+    });
+  }
 
-class PartnetTabForm extends React.Component{
   render() {
     return (
-        <div>
-            <PartnetPersonForm isVisable={true} />
-            <PartnetOrgForm isVisable={false} />
-        </div>
-      
+      <div>
+        <PartnetPersonForm isVisable={this.state.isVisable} />
+        <PartnetOrgForm isVisable={!this.state.isVisable} />
+      </div>
     );
   }
-};
+}
 
 export default PartnetTabForm;
