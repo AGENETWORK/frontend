@@ -18,13 +18,18 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "react-scripts test",
-    "precommit": "lint-staged"
+    "lint": "eslint src --fix",
+    "test": "cross-env CI=true react-scripts test --env=jsdom"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,css,json}": [
-      "preittier --write",
-      "git add"
+    "**/*.js": [
+      "yarn lint",
+      "yarn test"
     ]
   },
   "eslintConfig": {
@@ -44,6 +49,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
