@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -34,6 +35,11 @@ function PartnetPersonForm({
                 placeholder="First Name"
                 ref={register({ required: true })}
               />
+			  
+			  
+			  
+			  
+			  
               {errors.firstName && <span>required</span>}
             </div>
             <div className="col col-md-4 col-xs-12">
@@ -113,8 +119,7 @@ function PartnetPersonForm({
                 className="form-control"
                 name="extractInfo"
                 placeholder="Add more information..."
-                ref={register({ required: true, minLength: 20, maxLength: 500 })}
-              >
+                ref={register({ required: true, minLength: 20, maxLength: 500 })}>
                 {extractInfo}
               </textarea>
               {errors.extractInfo && errors.extractInfo.type === "required" && "required"}

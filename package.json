@@ -18,19 +18,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "lint": "eslint src --fix",
-    "test": "cross-env CI=true react-scripts test --env=jsdom"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "yarn lint",
-      "yarn test"
-    ]
+    "test": "react-scripts test --env=jsdom",
+    "precommit": "pretty-quick --staged"
   },
   "eslintConfig": {
     "extends": "react-app"

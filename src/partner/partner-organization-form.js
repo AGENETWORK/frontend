@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -181,8 +182,7 @@ function PartnetOrgForm({
                 className="form-control"
                 name="message"
                 placeholder="Add a message"
-                ref={register({ required: true, minLength: 20, maxLength: 500 })}
-              >
+                ref={register({ required: true, minLength: 20, maxLength: 500 })}>
                 {message}
               </textarea>
               {errors.message && errors.message.type === "required" && "required"}
