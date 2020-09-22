@@ -1,6 +1,7 @@
 import React from 'react';
 import AboutUs from './about-us-section';
 import IntroductionSection from './introduction-section';
+import Portfolio from './portfolio-section';
 import Services from './services-section';
 import WhyUs from './why-us-section';
 
@@ -10,6 +11,7 @@ const HomePage = () => <>
     <AboutUs />
     <Services />
     <WhyUs />
+    <Portfolio />
   </main>
 </>;
 
