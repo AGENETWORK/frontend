@@ -1,7 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable no-console */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react/jsx-closing-bracket-location */
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -20,7 +17,7 @@ function PartnetOrgForm({
   const watchRepEmail = watch("repEmail", "");
   const onSubmit = (values) => console.log(values);
 
-  if (!isVisable) return <div></div>;
+  if (!isVisable) return <div />;
 
   return (
     <div className="container">
@@ -86,6 +83,7 @@ function PartnetOrgForm({
             </div>
           </div>
         </div>
+
         <div className="form-group">
           <div className="row">
             <label>Repsintitaive Name</label>

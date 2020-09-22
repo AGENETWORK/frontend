@@ -34,6 +34,8 @@ function PartnetPersonForm({
                 placeholder="First Name"
                 ref={register({ required: true })}
               />
+			  
+			  
               {errors.firstName && <span>required</span>}
             </div>
             <div className="col col-md-4 col-xs-12">
