@@ -9,7 +9,6 @@ function PartnetPersonForm({
   lastName,
   email,
   confirmEmail,
-
   extractInfo,
 }) {
   const { register, handleSubmit, errors, watch } = useForm();
