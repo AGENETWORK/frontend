@@ -9,7 +9,7 @@ const App = () => {
     <div className="App">
       <Header />
       <Main />
-      <PartnetTabForm />
+      {/* <PartnetTabForm /> */}
       <Footer />
     </div>
   );
