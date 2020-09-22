@@ -182,7 +182,8 @@ function PartnetOrgForm({
                 className="form-control"
                 name="message"
                 placeholder="Add a message"
-                ref={register({ required: true, minLength: 20, maxLength: 500 })}>
+                ref={register({ required: true, minLength: 20, maxLength: 500 })}
+              >
                 {message}
               </textarea>
               {errors.message && errors.message.type === "required" && "required"}
