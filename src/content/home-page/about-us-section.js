@@ -1,8 +1,8 @@
 import React from 'react';
 
 const AboutUs = () => <section id="about">
-  <div class="container">
-    <header class="section-header">
+  <div className="container">
+    <header className="section-header">
       <h3>About Us</h3>
       <h6>African Girls Empowerment Network (AGE Network) is a registered young feminine non-profit organization
       dedicated to reducing gender inequality across Africa by empowering young women and girls. We advance gender equality in girls’ education, promote women’s good health, bolster women’s role in
@@ -11,44 +11,44 @@ const AboutUs = () => <section id="about">
     </h6>
     </header>
 
-    <div class="row about-container">
-      <div class="col-lg-6 content order-lg-1 order-2">
+    <div className="row about-container">
+      <div className="col-lg-6 content order-lg-1 order-2">
         <p></p>
-        <div class="icon-box wow fadeInUp">
-          <div class="icon"><i class="fa fa-bullseye"></i></div>
-          <h4 class="title"><a href="">MISSION</a></h4>
-          <p class="description">Our core mission is to empower, support and protect young women and girls to advance
+        <div className="icon-box wow fadeInUp">
+          <div className="icon"><i className="fa fa-bullseye"></i></div>
+          <h4 className="title"><a href="">MISSION</a></h4>
+          <p className="description">Our core mission is to empower, support and protect young women and girls to advance
           their bodily rights, leadership, economic and financial inclusion in Nigeria and to foster
           them to become inextricable partners in the sustainable development of the society for
           our generation and most importantly the generations next.</p>
         </div>
-        <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-          <div class="icon"><i class="fa fa-eye"></i></div>
-          <h4 class="title"><a href="">VISION</a></h4>
-          <p class="description">Become Africa's No.1 movement for gender equality, young women and girls’ capacity
+        <div className="icon-box wow fadeInUp" data-wow-delay="0.2s">
+          <div className="icon"><i className="fa fa-eye"></i></div>
+          <h4 className="title"><a href="">VISION</a></h4>
+          <p className="description">Become Africa's No.1 movement for gender equality, young women and girls’ capacity
           development, leadership and economic empowerment hub, a platform through which
           young women and girls become inextricable partners in the sustainable development.</p>
         </div>
 
-        <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-          <div class="icon"><i class="fa fa-bar-chart"></i></div>
-          <h4 class="title"><a href="">GOALS</a></h4>
-          <p class="description">To empower young women and girls to become inextricable
+        <div className="icon-box wow fadeInUp" data-wow-delay="0.4s">
+          <div className="icon"><i className="fa fa-bar-chart"></i></div>
+          <h4 className="title"><a href="">GOALS</a></h4>
+          <p className="description">To empower young women and girls to become inextricable
           partners in the sustainable development of the society and to remain a frontline
           women and girls human rights organization.
         </p>
         </div>
       </div>
-      <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-        <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566779/AGENETWORK/about-img_ttwg3s.svg" class="img-fluid" alt="" />
+      <div className="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+        <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566779/AGENETWORK/about-img_ttwg3s.svg" className="img-fluid" alt="" />
       </div>
     </div>
 
-    <div class="row about-extra">
-      <div class="col-lg-6 wow fadeInUp">
-        <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566780/AGENETWORK/about-extra-1_txymzf.svg" class="img-fluid" alt="" />
+    <div className="row about-extra">
+      <div className="col-lg-6 wow fadeInUp">
+        <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566780/AGENETWORK/about-extra-1_txymzf.svg" className="img-fluid" alt="" />
       </div>
-      <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+      <div className="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
         <h4>Engaging Project Beneficiaries</h4>
         <p>
           It has been the philosophy of AGE to identify committed
@@ -61,11 +61,11 @@ const AboutUs = () => <section id="about">
       </p>
       </div>
     </div>
-    <div class="row about-extra">
-      <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
-        <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566779/AGENETWORK/about-extra-2_pzjgih.svg" class="img-fluid" alt="" />
+    <div className="row about-extra">
+      <div className="col-lg-6 wow fadeInUp order-1 order-lg-2">
+        <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566779/AGENETWORK/about-extra-2_pzjgih.svg" className="img-fluid" alt="" />
       </div>
-      <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+      <div className="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
         <h4>Engaging Stakeholders</h4>
         <p>
           As part of its Alliance/Movement Building Strategy, AGE

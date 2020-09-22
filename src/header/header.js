@@ -2,25 +2,25 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header id="header" class="fixed-top">
-      <div class="container">
-        <div class="logo float-left">
-          <a href="#intro" class="scrollto">
-            <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566781/AGENETWORK/logo_wzj5dk.png" alt="" class="img-fluid" />
+    <header id="header" className="fixed-top">
+      <div className="container">
+        <div className="logo float-left">
+          <a href="#intro" className="scrollto">
+            <img src="https://res.cloudinary.com/temi2015/image/upload/v1599566781/AGENETWORK/logo_wzj5dk.png" alt="" className="img-fluid" />
           </a>
         </div>
 
-        <nav class="main-nav float-right d-none d-lg-block">
+        <nav className="main-nav float-right d-none d-lg-block">
           <ul>
-            <li class="active"><a href="#intro">Home</a></li>
+            <li className="active"><a href="#intro">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#team">Team</a></li>
-            <li class="drop-down"><a href="">Drop Down</a>
+            <li className="drop-down"><a href="">Drop Down</a>
               <ul>
                 <li><a href="#">Drop Down 1</a></li>
-                <li class="drop-down"><a href="#">Drop Down 2</a>
+                <li className="drop-down"><a href="#">Drop Down 2</a>
                   <ul>
                     <li><a href="#">Deep Drop Down 1</a></li>
                     <li><a href="#">Deep Drop Down 2</a></li>
