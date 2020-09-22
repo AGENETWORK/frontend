@@ -3,6 +3,7 @@ import AboutUs from './about-us-section';
 import IntroductionSection from './introduction-section';
 import Portfolio from './portfolio-section';
 import Services from './services-section';
+import Team from './team-section';
 import Testimonials from './testimonials-section';
 import WhyUs from './why-us-section';
 
@@ -14,6 +15,7 @@ const HomePage = () => <>
     <WhyUs />
     <Portfolio />
     <Testimonials />
+    <Team />
   </main>
 </>;
 
