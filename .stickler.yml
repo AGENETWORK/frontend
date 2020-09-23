@@ -1,5 +1,8 @@
 linters:
-  csslint: {  }
+  stylelint:
+    config: './.stylelintrc.json'
+    fixer: true
+
 files:
   ignore:
     - 'bower_components/*'
