@@ -1,7 +1,8 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from '.';
+/* eslint-disable import/no-unresolved */
+import React from "react";
+import { render } from "@testing-library/react";
+import App from ".";
 
-test('renders', () => {
+test("renders", () => {
   render(<App />);
 });
