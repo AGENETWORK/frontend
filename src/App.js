@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import PartnetTabForm from "./partner/partner-tab-form";
 import "./App.css";
