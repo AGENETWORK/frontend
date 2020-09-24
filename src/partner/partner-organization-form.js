@@ -7,192 +7,195 @@ function PartnetOrgForm({
   isVisable,
   orgName,
   orgEmail,
+  orgConfirmMail,
   repFirstName,
   repMidName,
   repLastName,
   repEmail,
+  repConfirmMail,
   message,
+  onSubmitFrom,
+  formChange,
 }) {
   const { register, handleSubmit, errors, watch } = useForm();
   const watchOrgEmail = watch("orgEmail", "");
   const watchRepEmail = watch("repEmail", "");
-  const onSubmit = (values) => console.log(values);
-
+  const onSubmit = (data) => {
+    onSubmitFrom(data);
+  };
   if (!isVisable) return <div />;
 
   return (
     <div className="container">
-      <h4>My Form</h4>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <div className="row">
-            <label>Organization Name</label>
-          </div>
-          <div className="row">
-            <div className="col col-md-6 col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                value={orgName}
-                name="orgName"
-                placeholder="Organization Name"
-                ref={register({ required: true })}
-              />
-              {errors.orgName && <span>required</span>}
-            </div>
+        <h6>Organization Details</h6>
+        <div className="form-row">
+          <div className="form-group col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              defaultValue={orgName}
+              name="orgName"
+              onChange={(e) => formChange(e)}
+              placeholder="Organization Name"
+              ref={register({ required: true })}
+            />
+            {errors.orgName && <span className="partnerError">required</span>}
           </div>
         </div>
-        <div className="form-group">
-          <div className="row">
-            <label>Organization Email</label>
+        <div className="form-row">
+          <div className="form-group col-md-4">
+            <input
+              className="form-control"
+              type="text"
+              defaultValue={orgEmail}
+              name="orgEmail"
+              onChange={(e) => formChange(e)}
+              placeholder="Organization Mail"
+              ref={register({
+                required: true,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                },
+              })}
+            />
+            {errors.orgEmail && errors.orgEmail.type === "required" && (
+              <span className="partnerError">required</span>
+            )}
+            {errors.orgEmail && errors.orgEmail.type === "pattern" && (
+              <span className="partnerError">invalid email</span>
+            )}
           </div>
-
-          <div className="row">
-            <div className="col col-md-6 col-sm-12">
-              <input
-                className="form-control"
-                type="text"
-                value={orgEmail}
-                name="orgEmail"
-                placeholder="Organization Mail"
-                ref={register({
-                  required: true,
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  },
-                })}
-              />
-              {errors.orgEmail && errors.orgEmail.type === "required" && "required"}
-              {errors.orgEmail && errors.orgEmail.type === "pattern" && "invalid email"}
-            </div>
-            <div className="col col-md-6 col-sm-12">
-              <input
-                className="form-control"
-                type="text"
-                value={orgEmail}
-                name="confirmOrgEmail"
-                placeholder="Confirm Mail"
-                ref={register({
-                  required: true,
-                  validate: (value) => value === watchOrgEmail,
-                })}
-              />
-              {errors.confirmOrgEmail && errors.confirmOrgEmail.type === "required" && "equired"}
-              {errors.confirmOrgEmail &&
-                errors.confirmOrgEmail.type === "validate" &&
-                "email confirmation is not same"}
-            </div>
-          </div>
-        </div>
-
-        <div className="form-group">
-          <div className="row">
-            <label>Repsintitaive Name</label>
-          </div>
-          <div className="row">
-            <div className="col col-md-4 col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                value={repFirstName}
-                name="repFirstName"
-                placeholder="Repsintitaive first Name"
-                ref={register({ required: true })}
-              />
-
-              {errors.repFirstName && <span>required</span>}
-            </div>
-            <div className="col col-md-4 col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                value={repMidName}
-                name="repMidName"
-                placeholder="Repsintitaive Middle Name"
-                ref={register({ required: true })}
-              />
-
-              {errors.repMidName && "required"}
-            </div>
-            <div className="col col-md-4 col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                value={repLastName}
-                name="repLastName"
-                placeholder="Repsintitaive Last Name"
-                ref={register({ required: true })}
-              />
-
-              {errors.repLastName && "required"}
-            </div>
+          <div className="form-group col-md-4">
+            <input
+              className="form-control"
+              type="text"
+              defaultValue={orgConfirmMail}
+              name="confirmOrgEmail"
+              placeholder="Confirm Mail"
+              onChange={(e) => formChange(e)}
+              ref={register({
+                required: true,
+                validate: (value) => value === watchOrgEmail,
+              })}
+            />
+            {errors.confirmOrgEmail && errors.confirmOrgEmail.type === "required" && (
+              <span className="partnerError">required</span>
+            )}
+            {errors.confirmOrgEmail && errors.confirmOrgEmail.type === "validate" && (
+              <span className="partnerError">email confirmation is not same</span>
+            )}
           </div>
         </div>
 
-        <div className="form-group">
-          <div className="row">
-            <label>Repsintitaive Email</label>
-          </div>
+        <h6>Representative Details</h6>
+        <div className="form-row">
+          <div className="form-group col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              defaultValue={repFirstName}
+              name="repFirstName"
+              placeholder="Representative first Name"
+              onChange={(e) => formChange(e)}
+              ref={register({ required: true })}
+            />
 
-          <div className="row">
-            <div className="col col-md-6 col-sm-12">
-              <input
-                className="form-control"
-                type="text"
-                value={repEmail}
-                name="repEmail"
-                placeholder="Repsintitaive Mail"
-                ref={register({
-                  required: true,
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  },
-                })}
-              />
-              {errors.repEmail && errors.repEmail.type === "required" && "required"}
-              {errors.repEmail && errors.repEmail.type === "pattern" && "invalid email"}
-            </div>
-            <div className="col col-md-6 col-sm-12">
-              <input
-                className="form-control"
-                type="text"
-                value={repEmail}
-                name="confirmRepEmail"
-                placeholder="Confirm Mail"
-                ref={register({
-                  required: true,
-                  validate: (value) => value === watchRepEmail,
-                })}
-              />
-              {errors.confirmRepEmail && errors.confirmRepEmail.type === "required" && "equired"}
-              {errors.confirmRepEmail &&
-                errors.confirmRepEmail.type === "validate" &&
-                "email confirmation is not same"}
-            </div>
+            {errors.repFirstName && <span className="partnerError">required</span>}
+          </div>
+          <div className="form-group col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              defaultValue={repMidName}
+              name="repMidName"
+              placeholder="Representative Middle Name"
+              onChange={(e) => formChange(e)}
+              ref={register({ required: true })}
+            />
+
+            {errors.repMidName && <span className="partnerError">required</span>}
+          </div>
+          <div className="form-group col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              defaultValue={repLastName}
+              name="repLastName"
+              placeholder="Representative Last Name"
+              onChange={(e) => formChange(e)}
+              ref={register({ required: true })}
+            />
+
+            {errors.repLastName && <span className="partnerError">required</span>}
           </div>
         </div>
-        <div className="form-group">
-          <div className="row">
-            <label>Comment or Message</label>
-          </div>
 
-          <div className="row">
-            <div className="col col-md-12 col-sm-12">
-              <textarea
-                className="form-control"
-                name="message"
-                placeholder="Add a message"
-                ref={register({ required: true, minLength: 20, maxLength: 500 })}
-              >
-                {message}
-              </textarea>
-              {errors.message && errors.message.type === "required" && "required"}
-              {errors.message && errors.message.type === "minLength" && "Minimum 20 charachter"}
-              {errors.message && errors.message.type === "maxLength" && "Miximum 500 charachter"}
-            </div>
+        <div className="form-row">
+          <div className="form-group col-md-4">
+            <input
+              className="form-control"
+              type="text"
+              defaultValue={repEmail}
+              name="repEmail"
+              placeholder="Representative Mail"
+              onChange={(e) => formChange(e)}
+              ref={register({
+                required: true,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                },
+              })}
+            />
+            {errors.repEmail && errors.repEmail.type === "required" && (
+              <span className="partnerError">required</span>
+            )}
+            {errors.repEmail && errors.repEmail.type === "pattern" && (
+              <span className="partnerError">invalid email</span>
+            )}
+          </div>
+          <div className="form-group col-md-4">
+            <input
+              className="form-control"
+              type="text"
+              defaultValue={repConfirmMail}
+              name="confirmRepEmail"
+              placeholder="Confirm Mail"
+              onChange={(e) => formChange(e)}
+              ref={register({
+                required: true,
+                validate: (value) => value === watchRepEmail,
+              })}
+            />
+            {errors.confirmRepEmail && errors.confirmRepEmail.type === "required" && (
+              <span className="partnerError">required</span>
+            )}
+            {errors.confirmRepEmail && errors.confirmRepEmail.type === "validate" && (
+              <span className="partnerError">email confirmation is not same</span>
+            )}
           </div>
         </div>
-        <div className="form-group">
+        <div className="form-row">
+          <div className="form-group col-md-8">
+            <textarea
+              className="form-control"
+              name="message"
+              placeholder="Add a message"
+              onChange={(e) => formChange(e)}
+              defaultValue={message}
+              ref={register({ required: true, minLength: 20, maxLength: 500 })}></textarea>
+            {errors.message && errors.message.type === "required" && (
+              <span className="partnerError">required</span>
+            )}
+            {errors.message && errors.message.type === "minLength" && (
+              <span className="partnerError">Minimum 20 charachter</span>
+            )}
+            {errors.message && errors.message.type === "maxLength" && (
+              <span className="partnerError">Miximum 500 charachter</span>
+            )}
+          </div>
+        </div>
+        <div className="form-row">
           <button className="btn btn-primary" type="submit">
             Submit
           </button>

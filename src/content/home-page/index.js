@@ -8,6 +8,7 @@ import Services from "./services-section";
 import Team from "./team-section";
 import Testimonials from "./testimonials-section";
 import WhyUs from "./why-us-section";
+import PartnerTabForm from "../../partner/partner-tab-form";
 
 const HomePage = () => (
   <>
@@ -21,6 +22,7 @@ const HomePage = () => (
       <Team />
       <Clients />
       <ContactUs />
+      <PartnerTabForm />
     </main>
   </>
 );
