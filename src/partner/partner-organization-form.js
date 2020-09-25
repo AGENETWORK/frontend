@@ -183,7 +183,8 @@ function PartnetOrgForm({
               placeholder="Add a message"
               onChange={(e) => formChange(e)}
               defaultValue={message}
-              ref={register({ required: true, minLength: 20, maxLength: 500 })}></textarea>
+              ref={register({ required: true, minLength: 20, maxLength: 500 })}
+            />
             {errors.message && errors.message.type === "required" && (
               <span className="partnerError">required</span>
             )}

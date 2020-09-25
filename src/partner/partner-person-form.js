@@ -117,7 +117,8 @@ function PartnetPersonForm({
               placeholder="Add more information..."
               onChange={(e) => formChange(e)}
               defaultValue={extractInfo}
-              ref={register({ required: true, minLength: 20, maxLength: 500 })}></textarea>
+              ref={register({ required: true, minLength: 20, maxLength: 500 })}
+            />
             {errors.extractInfo && errors.extractInfo.type === "required" && (
               <span className="partnerError">required</span>
             )}
