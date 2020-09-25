@@ -3,7 +3,7 @@
 import React from "react";
 import PartnetPersonForm from "./partner-person-form";
 import PartnetOrgForm from "./partner-organization-form";
-import "./partner.css";
+import "./partner.scss";
 
 class PartnetTabForm extends React.Component {
   constructor(props) {
@@ -72,13 +72,15 @@ class PartnetTabForm extends React.Component {
           <button
             type="button"
             className={this.state.isPerson ? "active" : ""}
-            onClick={() => this.selectPartner("P")}>
+            onClick={() => this.selectPartner("P")}
+          >
             Person
           </button>
           <button
             type="button"
             className={!this.state.isPerson ? "active" : ""}
-            onClick={() => this.selectPartner("O")}>
+            onClick={() => this.selectPartner("O")}
+          >
             Organization
           </button>
         </div>
