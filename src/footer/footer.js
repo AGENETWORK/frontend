@@ -3,8 +3,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prefer-stateless-function */
 import React from "react";
+import { withNamespaces } from "react-i18next";
 
-const Footer = () => (
+const Footer = ({ t }) => (
   <footer id="footer">
     <div className="footer-top">
       <div className="container">
@@ -100,4 +101,4 @@ const Footer = () => (
   </footer>
 );
 
-export default Footer;
+export default withNamespaces()(Footer);
