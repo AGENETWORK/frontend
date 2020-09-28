@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-console */
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable react/destructuring-assignment */
 import React from "react";
@@ -38,27 +40,26 @@ class PartnetTabForm extends React.Component {
   }
 
   orgPartnerFormChanges(e) {
-    this.console.log(e);
+    console.log(e);
     e.preventDefault();
   }
 
   personPartnerFormChanges(e) {
-    this.console.log(e);
+    console.log(e);
     e.preventDefault();
   }
 
   submitPersonPartnerForm(date) {
-    this.console.log("P");
-    this.console.log(date);
+    console.log("P");
+    console.log(date);
   }
 
   submitOrgPartnerForm(date) {
-    this.console.log("OGR");
-    this.console.log(date);
+    console.log("OGR");
+    console.log(date);
   }
 
   selectPartner(type) {
-    this.console.log(type);
     if (type === "P" && this.state.isPerson) return;
     if (type === "O" && !this.state.isPerson) return;
     this.setState({
@@ -80,7 +81,7 @@ class PartnetTabForm extends React.Component {
             type="button"
             className={!this.state.isPerson ? "active" : ""}
             onClick={() => this.selectPartner("O")}>
-            Organization
+            {this.props.t("partner-tab-org-label")}
           </button>
         </div>
         <div className={this.state.isPerson ? "tabcontent" : ""}>
