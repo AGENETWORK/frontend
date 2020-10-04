@@ -25,7 +25,7 @@ const WhyUs = () => (
                 inventore officiis aut voluptatibus.
               </p>
               <a href="#" className="readmore">
-                Read more{" "}
+                Read more
               </a>
             </div>
           </div>
@@ -40,7 +40,7 @@ const WhyUs = () => (
                 Voluptates nihil et quis omnis et eaque omnis sint aut. Ducimus dolorum aspernatur.
               </p>
               <a href="#" className="readmore">
-                Read more{" "}
+                Read more
               </a>
             </div>
           </div>
@@ -52,10 +52,10 @@ const WhyUs = () => (
             <div className="card-body">
               <h5 className="card-title">Eum ut aspernatur</h5>
               <p className="card-text">
-                Autem quod nesciunt eos ea aut amet laboriosam ab. Eos quis porro in non nemo ex.{" "}
+                Autem quod nesciunt eos ea aut amet laboriosam ab. Eos quis porro in non nemo ex.
               </p>
               <a href="#" className="readmore">
-                Read more{" "}
+                Read more
               </a>
             </div>
           </div>

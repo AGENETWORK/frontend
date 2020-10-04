@@ -2,9 +2,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { I18nextProvider } from "react-i18next";
-import $ from "jquery/dist/jquery";
 import i18n from "./i18n";
-import "jquery-migrate/dist/jquery-migrate";
 import App from "./app";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
@@ -19,7 +17,7 @@ render(
   document.getElementById("root")
 );
 
-document.addEventListener("DOMContentLoaded", () => {
+(($) => {
   // Preloader (if the #preloader div exists)
   $(window).on("load", () => {
     if ($("#preloader").length) {
@@ -45,22 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return false;
   });
 
-  // Header scroll class
-  $(window).scroll(() => {
-    if ($(this).scrollTop() > 100) {
-      $("#header").addClass("header-scrolled");
-    } else {
-      $("#header").removeClass("header-scrolled");
-    }
-  });
-
-  if ($(window).scrollTop() > 100) {
-    $("#header").addClass("header-scrolled");
-  }
-
   // Smooth scroll for the navigation and links with .scrollto classes
   $(".main-nav a, .mobile-nav a, .scrollto").on("click", () => {
     const { hostname, pathname } = window.location;
+
+    if (!hostname || !pathname) return;
 
     const pathnamesEqual = pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "");
 
@@ -95,10 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
           $(".mobile-nav-toggle i").toggleClass("fa-times fa-bars");
           $(".mobile-nav-overly").fadeOut();
         }
-        return false;
+        //        return false;
       }
     }
-    return true;
+    //  return true;
   });
 
   // Navigation active state on scroll
@@ -141,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //     portfolioIsotope.isotope({ filter: $(this).data('filter') });
   //   });
   // });
-});
+})(window.jQuery);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

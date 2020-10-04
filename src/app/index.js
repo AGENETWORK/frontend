@@ -17,6 +17,10 @@ class App extends React.Component {
         <Header />
         <Main />
         <Footer />
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a href="#" className="back-to-top">
+          <i className="fa fa-chevron-up" />
+        </a>
       </div>
     );
   }

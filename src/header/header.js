@@ -1,17 +1,41 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prefer-stateless-function */
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { withNamespaces } from "react-i18next";
 import i18n from "../i18n";
 
+const SCROLL_LIMIT = 100;
+
+const getCssClass = (distanceFromTop, scrollLimit) => {
+  if (distanceFromTop > scrollLimit) {
+    return "fixed-top header-scrolled";
+  }
+  return "fixed-top";
+};
+
 function Header() {
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
+  const [headerClassName, setHeaderClassName] = useState("fixed-top");
+
+  const changeLanguage = (lng) => i18n.changeLanguage(lng);
+  const scrollHandler = (e) => {
+    const {
+      scrollingElement: { scrollTop: distanceFromTop },
+    } = e.target;
+
+    setHeaderClassName(getCssClass(distanceFromTop, SCROLL_LIMIT));
   };
 
+  useLayoutEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
   return (
-    <header id="header" className="fixed-top">
+    <header id="header" className={headerClassName}>
       <div className="container">
         <div className="logo float-left">
           <a href="#intro" className="scrollto">
@@ -80,11 +104,11 @@ function Header() {
             <li>
               <a href="#contact">Contact Us</a>
             </li>
-            <li>
-              <a href="#" onClick={() => changeLanguage("en")}>
+            <li style={{ display: "flex" }}>
+              <a className="px-1" href="#" onClick={() => changeLanguage("en")}>
                 En
               </a>
-              <a href="#" onClick={() => changeLanguage("fr")}>
+              <a className="px-1" href="#" onClick={() => changeLanguage("fr")}>
                 Fr
               </a>
             </li>
