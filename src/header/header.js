@@ -2,8 +2,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prefer-stateless-function */
 import React from "react";
+import { withNamespaces } from "react-i18next";
+import i18n from "../i18n";
 
-const Header = () => {
+function Header() {
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <header id="header" className="fixed-top">
       <div className="container">
@@ -74,11 +80,19 @@ const Header = () => {
             <li>
               <a href="#contact">Contact Us</a>
             </li>
+            <li>
+              <a href="#" onClick={() => changeLanguage("en")}>
+                En
+              </a>
+              <a href="#" onClick={() => changeLanguage("fr")}>
+                Fr
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
   );
-};
+}
 
-export default Header;
+export default withNamespaces()(Header);

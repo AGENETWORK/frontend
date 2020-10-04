@@ -1,7 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
 import { render } from "react-dom";
+import { I18nextProvider } from "react-i18next";
 import $ from "jquery/dist/jquery";
+import i18n from "./i18n";
 import "jquery-migrate/dist/jquery-migrate";
 import App from "./app";
 import * as serviceWorker from "./serviceWorker";
@@ -10,7 +12,9 @@ import "./index.scss";
 
 render(
   <React.StrictMode>
-    <App />
+    <I18nextProvider i18n={i18n}>
+      <App i18n={i18n} />
+    </I18nextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
@@ -98,26 +102,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Navigation active state on scroll
-  const navSections = $("section");
-  const mainNav = $(".main-nav, .mobile-nav");
-  const mainNavHeight = $("#header").outerHeight();
+  // const navSections = $("section");
+  // const mainNav = $(".main-nav, .mobile-nav");
+  // const mainNavHeight = $("#header").outerHeight();
 
-  $(window).on("scroll", () => {
-    const curPosition = $(this).scrollTop();
+  // $(window).on("scroll", () => {
+  //   const curPosition = $(this).scrollTop();
 
-    navSections.each(() => {
-      const top = $(this).offset().top - mainNavHeight;
-      const bottom = top + $(this).outerHeight();
+  //   navSections.each(() => {
+  //     const top = $(this).offset().top - mainNavHeight;
+  //     const bottom = top + $(this).outerHeight();
 
-      if (curPosition >= top && curPosition <= bottom) {
-        mainNav.find("li").removeClass("active");
-        mainNav
-          .find(`a[href="#${$(this).attr("id")}"]`)
-          .parent("li")
-          .addClass("active");
-      }
-    });
-  });
+  //     if (curPosition >= top && curPosition <= bottom) {
+  //       mainNav.find("li").removeClass("active");
+  //       mainNav
+  //         .find(`a[href="#${$(this).attr("id")}"]`)
+  //         .parent("li")
+  //         .addClass("active");
+  //     }
+  //   });
+  // });
 
   // jQuery counterUp (used in Why Us section)
   // $('[data-toggle="counter-up"]').counterUp({

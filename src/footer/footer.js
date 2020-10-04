@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prefer-stateless-function */
 import React from "react";
+import { withNamespaces } from "react-i18next";
 
 const Footer = () => (
   <footer id="footer">
@@ -93,11 +94,8 @@ const Footer = () => (
       <div className="copyright">
         &copy; Copyright <strong>AGE Network</strong>. All Rights Reserved
       </div>
-      {/* <div className="credits">
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div> */}
     </div>
   </footer>
 );
 
-export default Footer;
+export default withNamespaces()(Footer);

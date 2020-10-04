@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
+import { withNamespaces } from "react-i18next";
 import { useForm } from "react-hook-form";
 
 function PartnetPersonForm({
+  t,
   isVisable,
   firstName,
   midName,
@@ -24,7 +26,7 @@ function PartnetPersonForm({
   return (
     <div className="container">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h6>Person Details</h6>
+        <h6>{t("partner-person-form-personDetails-label")}</h6>
         <div className="form-row">
           <div className="form-group col-md-4">
             <input
@@ -32,11 +34,13 @@ function PartnetPersonForm({
               className="form-control"
               defaultValue={firstName}
               name="firstName"
-              placeholder="First Name"
+              placeholder={t("partner-person-form-firstName-placeholder")}
               onChange={(e) => formChange(e)}
               ref={register({ required: true })}
             />
-            {errors.firstName && <span className="partnerError">required</span>}
+            {errors.firstName && (
+              <span className="partnerError">{t("form-errorMsg-required")}</span>
+            )}
           </div>
           <div className="form-group col-md-4">
             <input
@@ -44,11 +48,11 @@ function PartnetPersonForm({
               className="form-control"
               defaultValue={midName}
               name="midName"
-              placeholder="Middle Name"
+              placeholder={t("partner-person-form-midName-placeholder")}
               onChange={(e) => formChange(e)}
               ref={register({ required: true })}
             />
-            {errors.midName && <span className="partnerError">required</span>}
+            {errors.midName && <span className="partnerError">{t("form-errorMsg-required")}</span>}
           </div>
           <div className="form-group col-md-4">
             <input
@@ -56,11 +60,11 @@ function PartnetPersonForm({
               className="form-control"
               defaultValue={lastName}
               name="lastName"
-              placeholder="Last Name"
+              placeholder={t("partner-person-form-lastName-placeholder")}
               onChange={(e) => formChange(e)}
               ref={register({ required: true })}
             />
-            {errors.lastName && <span className="partnerError">required</span>}
+            {errors.lastName && <span className="partnerError">{t("form-errorMsg-required")}</span>}
           </div>
         </div>
 
@@ -71,7 +75,7 @@ function PartnetPersonForm({
               type="text"
               defaultValue={email}
               name="email"
-              placeholder="Your Mail"
+              placeholder={t("partner-person-form-personMail-placeholder")}
               onChange={(e) => formChange(e)}
               ref={register({
                 required: true,
@@ -81,10 +85,10 @@ function PartnetPersonForm({
               })}
             />
             {errors.email && errors.email.type === "required" && (
-              <span className="partnerError">required</span>
+              <span className="partnerError">{t("form-errorMsg-required")}</span>
             )}
             {errors.email && errors.email.type === "pattern" && (
-              <span className="partnerError">invalid email address</span>
+              <span className="partnerError">{t("form-errorMsg-invalidMail")}</span>
             )}
           </div>
           <div className="form-group col-md-4">
@@ -93,7 +97,7 @@ function PartnetPersonForm({
               type="text"
               defaultValue={confirmEmail}
               name="confirmEmail"
-              placeholder="Confirm Mail"
+              placeholder={t("partner-person-form-personConfirmMail-placeholder")}
               onChange={(e) => formChange(e)}
               ref={register({
                 required: true,
@@ -101,10 +105,10 @@ function PartnetPersonForm({
               })}
             />
             {errors.confirmEmail && errors.confirmEmail.type === "required" && (
-              <span className="partnerError">required</span>
+              <span className="partnerError">{t("form-errorMsg-required")}</span>
             )}
             {errors.confirmEmail && errors.confirmEmail.type === "validate" && (
-              <span className="partnerError">Email confirmation is not same</span>
+              <span className="partnerError">{t("form-errorMsg-mailConfirmNotEqual")}</span>
             )}
           </div>
         </div>
@@ -114,26 +118,26 @@ function PartnetPersonForm({
             <textarea
               className="form-control"
               name="extractInfo"
-              placeholder="Add more information..."
+              placeholder={t("partner-person-form-message-placeholder")}
               onChange={(e) => formChange(e)}
               defaultValue={extractInfo}
               ref={register({ required: true, minLength: 20, maxLength: 500 })}
             />
             {errors.extractInfo && errors.extractInfo.type === "required" && (
-              <span className="partnerError">required</span>
+              <span className="partnerError">{t("form-errorMsg-required")}</span>
             )}
             {errors.extractInfo && errors.extractInfo.type === "minLength" && (
-              <span className="partnerError">Minimum 20 charachter</span>
+              <span className="partnerError">{t("form-errorMsg-min-length") + 20}</span>
             )}
             {errors.extractInfo && errors.extractInfo.type === "maxLength" && (
-              <span className="partnerError">Miximum 500 charachter</span>
+              <span className="partnerError">{t("form-errorMsg-max-length") + 500}</span>
             )}
           </div>
         </div>
 
         <div className="form-group">
           <button className="btn btn-primary" type="submit">
-            Submit
+            {t("form-submit-btn")}
           </button>
         </div>
       </form>
@@ -141,4 +145,4 @@ function PartnetPersonForm({
   );
 }
 
-export default PartnetPersonForm;
+export default withNamespaces()(PartnetPersonForm);

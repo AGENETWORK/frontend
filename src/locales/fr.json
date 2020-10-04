@@ -1,0 +1,32 @@
+{
+  "partner-tab-person-label": "Person",
+  "partner-tab-org-label": "Organization",
+
+  "partner-org-form-orgDetails-label": "Organization Details",
+  "partner-org-form-orgName-placeholder": "Organization Name",
+  "partner-org-form-orgMail-placeholder": "Organization Mail",
+  "partner-org-form-orgConfirmMail-placeholder": "Confirm Mail",
+  "partner-org-form-repDetails-label": "Representative Details",
+  "partner-org-form-repFirstName-placeholder": "Representative First Name",
+  "partner-org-form-repLastName-placeholder": "Representative Last Name",
+  "partner-org-form-repMidName-placeholder": "Representative Middle Name",
+  "partner-org-form-repMail-placeholder": "Representative Mail",
+  "partner-org-form-reConfirmpMail-placeholder": "Confirm Mail",
+  "partner-org-form-message-placeholder": "Add Mesaage",
+  "partner-org-form-orgRepDetails-label": "Representative Details",
+
+  "partner-person-form-personDetails-label": "Person Details",
+  "partner-person-form-firstName-placeholder": "First Name",
+  "partner-person-form-lastName-placeholder": "Last Name",
+  "partner-person-form-midName-placeholder": "Middle Name",
+  "partner-person-form-message-placeholder": "Add Mesaage",
+  "partner-person-form-personMail-placeholder": "Your Mail",
+  "partner-person-form-personConfirmMail-placeholder": "Confirm Mail",
+
+  "form-errorMsg-required": "required",
+  "form-errorMsg-invalidMail": "invalid email",
+  "form-errorMsg-mailConfirmNotEqual": "email confirmation is not same",
+  "form-errorMsg-max-length": "Miximum charachter is",
+  "form-errorMsg-min-length": "Minimum charachter is",
+  "form-submit-btn": "Submit"
+}
