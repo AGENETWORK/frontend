@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect } from "react";
-import $ from "jquery";
-import "owl.carousel.es6";
+import React, { useLayoutEffect } from "react";
+
+const $ = window.jQuery;
 
 const Testimonials = () => {
   const baseUrl = "https://res.cloudinary.com/temi2015/image/upload";
@@ -54,13 +54,20 @@ const Testimonials = () => {
     },
   ];
 
-  useEffect(() => {
-    $(".testimonials-carousel").owlCarousel({
-      autoplay: true,
-      dots: true,
-      loop: true,
-      items: 1,
-    });
+  useLayoutEffect(() => {
+    const handler = () => {
+      $(".testimonials-carousel").owlCarousel({
+        autoplay: true,
+        dots: true,
+        loop: true,
+        items: 1,
+      });
+    };
+
+    window.addEventListener("DOMContentLoaded", handler);
+    return () => {
+      window.removeEventListener("DOMContentLoaded", handler);
+    };
   }, []);
 
   return (

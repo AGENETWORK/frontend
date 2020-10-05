@@ -1,7 +1,34 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+const counters = [
+  { title: "Clients", value: 274 },
+  { title: "Projects", value: 421 },
+  { title: "Hours of Support", value: 1364 },
+  { title: "Hard Workers", value: 18 },
+];
+
+const Counter = ({ title, value }) => {
+  const [localValue, setLocalValue] = useState(value || 0);
+
+  useEffect(() => {
+    const delay = value < 100 ? 10 : 2;
+    for (let i = 1; i <= value; i += 1) {
+      setTimeout(() => {
+        setLocalValue(i);
+      }, i * delay);
+    }
+  }, []);
+
+  return (
+    <div className="col-lg-3 col-6 text-center">
+      <span data-toggle="counter-up">{localValue}</span>
+      <p>{title}</p>
+    </div>
+  );
+};
 
 const WhyUs = () => (
   <section id="why-us" className="wow fadeIn">
@@ -63,22 +90,9 @@ const WhyUs = () => (
       </div>
 
       <div className="row counters">
-        <div className="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">274</span>
-          <p>Clients</p>
-        </div>
-        <div className="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">421</span>
-          <p>Projects</p>
-        </div>
-        <div className="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">1,364</span>
-          <p>Hours Of Support</p>
-        </div>
-        <div className="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">18</span>
-          <p>Hard Workers</p>
-        </div>
+        {counters.map((c) => (
+          <Counter key={c.title} title={c.title} value={c.value} />
+        ))}
       </div>
     </div>
   </section>
