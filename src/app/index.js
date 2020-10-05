@@ -3,6 +3,7 @@ import WOW from "wowjs";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import Main from "../content";
+import BackToTop from "./back-to-top";
 
 class App extends React.Component {
   componentDidMount() {
@@ -13,15 +14,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <>
         <Header />
         <Main />
         <Footer />
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#" className="back-to-top">
-          <i className="fa fa-chevron-up" />
-        </a>
-      </div>
+        <BackToTop />
+      </>
     );
   }
 }

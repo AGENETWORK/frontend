@@ -29,26 +29,11 @@ render(
     }
   });
 
-  // Back to top button
-  $(window).scroll(() => {
-    if ($(this).scrollTop() > 100) {
-      $(".back-to-top").fadeIn("slow");
-    } else {
-      $(".back-to-top").fadeOut("slow");
-    }
-  });
-
-  $(".back-to-top").click(() => {
-    $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
-    return false;
-  });
-
   // Smooth scroll for the navigation and links with .scrollto classes
   $(".main-nav a, .mobile-nav a, .scrollto").on("click", () => {
     const { hostname, pathname } = window.location;
 
     if (!hostname || !pathname) return;
-
     const pathnamesEqual = pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "");
 
     if (pathnamesEqual && hostname === this.hostname) {
@@ -82,10 +67,8 @@ render(
           $(".mobile-nav-toggle i").toggleClass("fa-times fa-bars");
           $(".mobile-nav-overly").fadeOut();
         }
-        //        return false;
       }
     }
-    //  return true;
   });
 
   // Navigation active state on scroll
